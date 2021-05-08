@@ -10,22 +10,23 @@
  * @return {ListNode}
  */
 var reverseList = function(head) {
-
-    //variables to reverse list initialized
-    let node = head;
-    let next = null;
-    let prev = null;
     
-    //iterate through linked-list
+    //swap head and tail of list
+    let node = head;
+    
+    
+    
+    let prev = null;
+    let next;
+    
     while(node !== null){
         next = node.next;
         node.next = prev;
         
         prev = node;
         node = next;
-    
     }
     
-    //return reversed linked-list at end
     return prev;
+    
 };
