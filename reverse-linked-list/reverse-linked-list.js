@@ -11,15 +11,12 @@
  */
 var reverseList = function(head) {
     
-    
     let node = head;
     
-    let next;
     let prev = null;
+    let next;
     
-    //traverse linked list
     while(node !== null){
-        //reverse linked list
         next = node.next;
         node.next = prev;
         
@@ -29,5 +26,4 @@ var reverseList = function(head) {
     
     return prev;
     
-
 };
