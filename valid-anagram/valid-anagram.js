@@ -4,48 +4,35 @@
  * @return {boolean}
  */
 var isAnagram = function(s, t) {
-
     
-    //edge case if both string are not equal to one another
-    if(s.length !== t.length){
-        return false;
-    }
+    if(s.length !== t.length) return false;
     
-    //create instance of hash map to compare each letter of each input
-    const map = new Map();
+    //create map for constant lookup time
+    let map = new Map();
     
-    //iterate through both s and t input
+    //iterate through s and t passing letters to map
+    
     for(let i = 0; i < s.length; i++){
-        
-        //container to hold each letter of given input
         let letter = s[i];
-        
-        //for first loop iterating through -- add it to map or increment count of letter
-        if(map[letter]){
-            map[letter]++;
-        } else {
+        if(!map[letter]){
             map[letter] = 1;
-        }
-    }
-
-    
-    //iterate through second given input
-    for(let i = 0; i < t.length; i++){
-        //container to hold each letter being looped through
-        let letter = t[i];
-        //if statement-- if letter does not exist in map then return false
-        if(map[letter]){
-            map[letter] -= 1;
         } else {
-            //else decrement existing letter from map     
-            return false
+            map[letter]++;
         }
-        
     }
-
     
-    //return true
-    return true;
+    //iterate through t and compare letters to whats already inside map
+    for(let i = 0; i < t.length; i++){
+        let letter = t[i];
+        if(!map[letter]){
+            return false;
+            map[letter] = 1;
+        } else {
+            map[letter]--;
+        }
+    }
     
+    //return true at end
+    return true
     
 };
