@@ -12,16 +12,17 @@
  */
 var hasCycle = function(head) {
     
-    let node = head;
+    let dummy = new ListNode(-1);
+    dummy.next = head;
     
-    let fast = node;
-    let slow = node;
+    let fast = dummy;
+    let slow = dummy;
     
-    while(fast!== null && fast.next !== null){
+    while(fast !== null && fast.next !== null){
         fast = fast.next.next;
         slow = slow.next;
         
-        if(fast === slow) return true;
+        if(fast === slow) return true; 
     }
     
     return false;
