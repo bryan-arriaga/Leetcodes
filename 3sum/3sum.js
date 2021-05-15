@@ -4,20 +4,19 @@
  */
 var threeSum = function(nums) {
     
-    nums.sort((a, b) => a - b);
-    let answer = [];
+    nums.sort((a , b) => a - b);
+    let triplets = [];
     
     for(let i = 0; i < nums.length; i++){
         
-        
-        //check if the current and prev numbers are the same continute
         if(i > 0 && nums[i] === nums[i - 1]) continue;
         
         let target = 0 - nums[i];
+        
         let left = i + 1;
         let right = nums.length - 1;
         
-        while(right > left){
+        while(left < right){
             let sum = nums[left] + nums[right];
             
             if(sum > target){
@@ -25,7 +24,7 @@ var threeSum = function(nums) {
             } else if(sum < target){
                 left++;
             } else {
-                answer.push([nums[i], nums[left], nums[right]]);
+                triplets.push([nums[i], nums[left], nums[right]]);
                 
                 while(nums[left] === nums[left + 1]) left++;
                 while(nums[right] === nums[right - 1]) right--;
@@ -37,6 +36,6 @@ var threeSum = function(nums) {
         
     }
     
-    return answer;
+    return triplets;
     
 };
