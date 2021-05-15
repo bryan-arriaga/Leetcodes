@@ -12,9 +12,11 @@
  */
 var mergeTwoLists = function(l1, l2) {
     
+    //new listnode to contain the merge values of both lists least -> greatest
     let merge = new ListNode(-1);
     let head = merge;
     
+    //iteratively go through l1 and l2
     while(l1 !== null && l2 !== null){
         
         if(l1.val < l2.val){
@@ -33,8 +35,8 @@ var mergeTwoLists = function(l1, l2) {
     } else {
         merge.next = l2;
     }
-
-    return head.next;
     
+    
+    return head.next;
     
 };
