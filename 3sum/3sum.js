@@ -4,11 +4,10 @@
  */
 var threeSum = function(nums) {
     
-    nums.sort((a , b) => a - b);
+    nums.sort((a, b) => a - b);
     let triplets = [];
     
     for(let i = 0; i < nums.length; i++){
-        
         if(i > 0 && nums[i] === nums[i - 1]) continue;
         
         let target = 0 - nums[i];
@@ -16,7 +15,7 @@ var threeSum = function(nums) {
         let left = i + 1;
         let right = nums.length - 1;
         
-        while(left < right){
+        while(right > left){
             let sum = nums[left] + nums[right];
             
             if(sum > target){
@@ -33,9 +32,8 @@ var threeSum = function(nums) {
                 right--;
             }
         }
-        
     }
     
-    return triplets;
     
+    return triplets;
 };
