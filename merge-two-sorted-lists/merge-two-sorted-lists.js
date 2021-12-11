@@ -12,35 +12,30 @@
  */
 var mergeTwoLists = function(l1, l2) {
     
-    //create new list to hold merged linked lists
-    let merge = new ListNode(1);
-    
+    //create new list to hold merge of l1 and l2
+    let merge = new ListNode(-1);
     let head = merge;
     
-    //loop through both lists as long as either lists are not null
-    while(l1 !== null && l2 !== null){
-
-        //push lesser value of l1 and l2 to merged list
-        if(l1.val < l2.val){
-            //move up next pointer for l1 or l2 after pushing
-            merge.next = l1;
-            l1 = l1.next
-        } else {
-            merge.next = l2;
-            l2 = l2.next
+    
+    //while loop to iterate through both l1 and l2
+        while(l1 !== null && l2 !== null){
+            //compare values and push lesser value of l1 and l2 to merged 
+            if(l1.val < l2.val){
+                merge.next = l1;
+                l1 = l1.next
+            } else {
+                //move up list
+                merge.next = l2;
+                l2 = l2.next 
+            }
+    
+            //move pointer to empty position in merged list
+            merge = merge.next
         }
-        
-        //move merge pointer to empty node 
-        merge = merge.next    
-    }
     
-    //push the rest of nodes into merge if either list is not empty
-    if(l1 !== null){
-        merge.next = l1;
-    } else {
-        merge.next = l2;
-    }
     
+    //if one of the two list is not empty push the remainding nodes to merged list
+    merge.next = l1 || l2;
     
     //return head of merged linked list
     return head.next;
