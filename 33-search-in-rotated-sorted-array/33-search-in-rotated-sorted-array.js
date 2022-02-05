@@ -14,7 +14,7 @@ var search = function(nums, target) {
       return mid;
     }
     
-    // When dividing the roated array into two halves, one must be sorted.
+    // When dividing the roated array into two halves, one side must be sorted.
     
     // Check if the left side is sorted
     if (nums[left] <= nums[mid]) {
