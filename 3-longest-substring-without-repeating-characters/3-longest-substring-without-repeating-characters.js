@@ -4,21 +4,15 @@
  */
 var lengthOfLongestSubstring = function(s) {
     
-    //create set to hold only unique values
     let set = new Set();
+    let left = 0
+    let right = 0;
     let maxSubString = 0;
     
-    //create two pointers
-    let left = 0;
-    let right = 0;
-    
-    //iterate through s while loop
     while(right < s.length){
-        //if set does not have charAt() add to set
         if(!set.has(s.charAt(right))){
             set.add(s.charAt(right));
             right++;
-            
             maxSubString = Math.max(maxSubString, set.size);
         } else {
             if(set.has(s.charAt(right))){
@@ -29,7 +23,5 @@ var lengthOfLongestSubstring = function(s) {
     }
     
     
-    //return maxSubString at end
-    return maxSubString
-    
+    return maxSubString;
 };
