@@ -4,30 +4,23 @@
  */
 var findRepeatedDnaSequences = function(s) {
     
-    let seen = {};
+    let subStrings = {};
     let output = [];
     let i = 0;
     
-    while(i + 10 <= s.length){
+    while(i < s.length){
         const dnaSequence = s.slice(i, i + 10);
         
-        if(seen[dnaSequence]){
-            seen[dnaSequence]++;
+        if(!subStrings[dnaSequence]){
+            subStrings[dnaSequence] = 1;
         } else {
-            seen[dnaSequence] = 1;
+            subStrings[dnaSequence]++;
         }
+        i++
         
-        if(seen[dnaSequence] === 2){
-           output.push(dnaSequence); 
-        }
-        
-        i++;
-        
+        if(subStrings[dnaSequence] === 2) output.push(dnaSequence);
     }
     
-    
-    
-    //return output at end
     return output;
     
 };
