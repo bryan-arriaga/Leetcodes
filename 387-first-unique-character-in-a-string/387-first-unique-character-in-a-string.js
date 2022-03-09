@@ -8,7 +8,7 @@ var firstUniqChar = function(s) {
     let n = s.length;
     
     //iterate through given input
-    for(let i = 0; i < s.length; i++){
+    for(let i = 0; i < n; i++){
         //pass in the numbers as values and count as keys
         let num = s[i];
         
@@ -17,16 +17,15 @@ var firstUniqChar = function(s) {
         } else {
             map[num] = 1;
         }
-        //go in map and return first number with key of 1 
-
-        //else return -1
-        
+       
+    }
+    
+    //find key with a value of 1 and return its index
+    for(let i = 0; i < s.length; i++){
+        if(map[s.charAt(i)] === 1) return i;
     }
 
-    //iterate through and find index 
-    for(let i = 0; i < n; i++){
-        if(map[s.charAt(i)] === 1) return i; 
-    }
+
     //return -1 at end
     return -1;
     
