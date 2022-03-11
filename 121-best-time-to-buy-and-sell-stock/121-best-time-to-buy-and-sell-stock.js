@@ -4,18 +4,26 @@
  */
 var maxProfit = function(prices) {
     
-    let maxProfit = 0;
-    let min = Number.MAX_VALUE;
+    //left to buy right to sell
+    let left = 0;
+    let right = 1;
+    let maxP = 0;
+    let profit;
     
-    //iterate through given prices array
-    for(let i = 0; i < prices.length; i++){
-        if(prices[i] < min){
-            min = prices[i];
+    while(right < prices.length){
+        if(prices[left] < prices[right]){
+            profit = prices[right] - prices[left];
+            maxP = Math.max(maxP, profit);
+        } else {
+            left = right
+          
         }
         
-        maxProfit = Math.max(maxProfit, prices[i] - min);
+        right++;
+        
     }
     
+    return maxP;
     
-    return maxProfit;
+    
 };
