@@ -6,9 +6,9 @@ var findRepeatedDnaSequences = function(s) {
     
     let subStrings = {};
     let result = [];
-    let i = 0;
+
     
-    while(i < s.length){
+    for(let i = 0; i < s.length; i++){
         let dnaSequence = s.slice(i, i + 10);
         
         if(!subStrings[dnaSequence]){
@@ -19,7 +19,7 @@ var findRepeatedDnaSequences = function(s) {
         
         if(subStrings[dnaSequence]=== 2) result.push(dnaSequence);
         
-        i++;
+        
     }
     
     return result;
