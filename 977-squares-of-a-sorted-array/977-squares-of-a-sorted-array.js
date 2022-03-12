@@ -4,18 +4,23 @@
  */
 var sortedSquares = function(nums) {
     
-    if(nums.length <= 0) return nums;
+    let result = new Array(nums.length);
+    let left = 0;
+    let right = nums.length - 1;
+   
     
-    //loop through given nums array 
-    //square each number at position i in array
-    for(let i = 0; i < nums.length; i++){
-        nums[i] = nums[i] * nums[i];
+    
+    for(let i = nums.length - 1; i >= 0; i--){
+        if(Math.abs(nums[left]) < Math.abs(nums[right])){
+            result[i] = nums[right] ** 2;
+            right--;
+        } else {
+            result[i] = nums[left] ** 2;
+            left++;
+        }
         
     }
-
-    //sort array again (n log n) 
-    nums.sort((a,b) => a - b);
-    //return nums at end
-    return nums;
+    
+    return result;
     
 };
