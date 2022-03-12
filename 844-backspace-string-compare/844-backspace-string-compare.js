@@ -1,5 +1,10 @@
-const backspaceCompare = (S, T) => { 
-    return edit(S) === edit(T);
+/**
+ * @param {string} s
+ * @param {string} t
+ * @return {boolean}
+ */
+var backspaceCompare = function(s, t) {
+        return edit(s) === edit(t);
     
     function edit(str) {
         let result = '';
@@ -17,4 +22,5 @@ const backspaceCompare = (S, T) => {
         
         return result;
     }
+    
 };
