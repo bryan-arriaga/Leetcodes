@@ -4,7 +4,6 @@
  * @return {number[]}
  */
 var twoSum = function(nums, target) {
-
     
     let map = new Map();
     
@@ -13,7 +12,12 @@ var twoSum = function(nums, target) {
         if(map.has(answer)){
             return [map.get(answer), i]
         } else {
-            map.set(nums[i], i)
+            map.set(nums[i], i);
         }
+    
     }
+
+
+
+
 };
