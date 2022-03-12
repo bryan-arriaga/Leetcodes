@@ -5,28 +5,23 @@
  */
 var backspaceCompare = function(s, t) {
     
-    return compare(s) === compare(t);
+    return edit(s) === edit(t);
     
-    function compare(str) {
-        let newString = '';
+    function edit(str) {
+        let result = '';
         let backspaces = 0;
         
         for (let i = str.length - 1; i >= 0; i--) {        
             if (str[i] === '#') {
-                backspaces++;
+                backspaces += 1;
             } else if (backspaces > 0) {
-                backspaces--;;
+                backspaces -= 1;
             } else {
-                newString = str[i] + newString;
-                  console.log('newString: ' + newString)
-                  console.log('\n'+ 'counter: '+ backspaces)
+                result = str[i] + result;
             }
-          
         }
         
-        return newString;
+        return result;
     }
+    
 };
-
-
-
