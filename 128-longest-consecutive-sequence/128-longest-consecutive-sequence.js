@@ -6,6 +6,7 @@ var longestConsecutive = function(nums) {
     
     if(nums.length === 0 || nums === null) return 0;
     
+    
     let set = new Set(nums);
     let max = 0;
     
@@ -16,14 +17,12 @@ var longestConsecutive = function(nums) {
         let currNum = num;
         
         while(set.has(currNum + 1)){
-            currMax++;
             currNum++;
+            currMax++;
+
         }
         max = Math.max(max, currMax);
     }
     
     return max;
-    
 };
-
-///100 200  1 -2 - 3- 4
