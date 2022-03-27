@@ -6,15 +6,15 @@ var maxSubArray = function(nums) {
 
     if(nums.length === 0 || nums === null) return 0;
     
-    let currSum = 0;
+    let sum = 0;
     let maxSub = nums[0];
     
     for(let num of nums){
-        if(currSum < 0){
-            currSum = 0;
+        if(sum < 0){
+            sum = 0;
         }
-        currSum += num
-        maxSub = Math.max(maxSub, currSum)
+        sum += num
+        maxSub = Math.max(maxSub, sum)
     }
     
     return maxSub;
