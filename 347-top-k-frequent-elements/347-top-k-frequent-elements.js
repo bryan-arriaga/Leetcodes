@@ -5,21 +5,23 @@
  */
 var topKFrequent = function(nums, k) {
     
+    if(nums.length === 0 || nums === null) return 0;
+    
+    let result = [];
+    
     let hash = {};
     
     for(let i = 0; i < nums.length; i++){
         hash[nums[i]] = hash[nums[i]] + 1 || 1;
-    } 
+    }
     
-    let result = [];
-    let key = Object.keys(hash);
+    let keys = Object.keys(hash);
     
-    key.sort((a,b)=> hash[a] - hash[b]);
+    keys.sort((a,b) => hash[a] - hash[b]);
     
     while(result.length < k){
-        result.push(key.pop());
+        result.push(keys.pop());
     }
-
     
     return result;
     
