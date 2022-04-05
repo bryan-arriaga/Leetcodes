@@ -5,24 +5,24 @@
  */
 var topKFrequent = function(nums, k) {
     
-    if(nums.length === 0 || nums === null) return 0;
-    
+    let map = {};
     let result = [];
     
-    let hash = {};
-    
+    //loop through given nums and pass in key as # and value as frequency
     for(let i = 0; i < nums.length; i++){
-        hash[nums[i]] = hash[nums[i]] + 1 || 1;
+       map[nums[i]] = map[nums[i]] + 1 || 1 
     }
     
-    let keys = Object.keys(hash);
+    //make key variable pass in keys
+    let keys = Object.keys(map);
+    //sort keys
+    keys.sort((a,b) => map[a] - map[b]);
     
-    keys.sort((a,b) => hash[a] - hash[b]);
-    
+    //while result length is less than k
     while(result.length < k){
         result.push(keys.pop());
     }
     
-    return result;
+    return result
     
 };
