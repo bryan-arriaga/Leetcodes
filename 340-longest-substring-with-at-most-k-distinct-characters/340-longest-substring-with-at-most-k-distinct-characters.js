@@ -5,12 +5,12 @@
  */
 var lengthOfLongestSubstringKDistinct = function(s, k) {
     
+    let hash = {};
+    
+    let answer = 0;
+    let counter = 0;
     let left = 0;
     let right = 0;
-    let counter = 0;
-    let answer = 0;
-    
-    let hash = {};
     
     for(let i = 0; i < s.length; i++){
         if(!hash[s[right]]){
@@ -31,6 +31,5 @@ var lengthOfLongestSubstringKDistinct = function(s, k) {
     }
     
     return answer;
-    
     
 };
