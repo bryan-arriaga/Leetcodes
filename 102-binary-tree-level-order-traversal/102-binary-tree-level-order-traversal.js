@@ -17,17 +17,16 @@ var levelOrder = function(root) {
     let queue = [root];
     
     while(queue.length){
-        const temp = [];
+        const levels = [];
         const numNodes = queue.length;
         for(let i = 0; i < numNodes; i++){
             const subTree = queue.shift();
-            temp.push(subTree.val)
-            if(subTree.left !== null) queue.push(subTree.left)
-            if(subTree.right !== null) queue.push(subTree.right)
+            levels.push(subTree.val);
+            if(subTree.left) queue.push(subTree.left);
+            if(subTree.right) queue.push(subTree.right);
             
         }
-        answer.push(temp);
-        
+        answer.push(levels)
     }
     
     return answer;
