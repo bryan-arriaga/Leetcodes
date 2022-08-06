@@ -4,18 +4,13 @@
  */
 var maxSubArray = function(nums) {
     
-    let maxSub = nums[0];
-    let sum = 0;
+    let prev = 0;
+    let max = -Infinity
     
-    for(let num of nums){
-        if(sum <= 0){
-            sum = 0;
-        }
-        sum += num;
-        
-        maxSub = Math.max(maxSub, sum);
+    for(let i = 0; i < nums.length; i++){
+        prev = Math.max(prev + nums[i], nums[i]);
+        max = Math.max(max, prev);
     }
-    
-    return maxSub;
+    return max;
     
 };
