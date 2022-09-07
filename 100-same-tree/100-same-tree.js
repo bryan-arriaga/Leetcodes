@@ -11,13 +11,19 @@
  * @param {TreeNode} q
  * @return {boolean}
  */
-
 var isSameTree = function(p, q) {
+    
+    //check if both p and q are null
+    //return true
     if(!p && !q) return true
+    
+    //conditional if p or q dont exist
+    //or if p's length !== q.length
     if(!p || !q || p.val !== q.val) return false;
     
-   return isSameTree(p.left, q.left) && isSameTree(p.right, q.right);
     
+    //return function call looking at all left nodes of p and q
+    //and function call of all right nodes of p and q
+    return isSameTree(p.left, q.left) && isSameTree(q.right, p.right);
     
-
-}
+};
