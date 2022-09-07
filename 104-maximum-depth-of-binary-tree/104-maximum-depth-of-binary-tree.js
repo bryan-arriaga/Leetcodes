@@ -11,18 +11,11 @@
  * @return {number}
  */
 var maxDepth = function(root) {
-
     
-    let maxDepth = 0;
+    //apply null check if there is no root return null
+    if(!root) return null
     
-    function dfs(node, depth){
-    if(!node) return maxDepth;  
     
-    dfs(node.right, depth + 1)
-    dfs(node.left, depth + 1)
-    maxDepth = Math.max(maxDepth, depth);
-    }
-   dfs(root, 1)
-   return maxDepth
+    return Math.max(maxDepth(root.left), maxDepth(root.right)) + 1;
     
 };
