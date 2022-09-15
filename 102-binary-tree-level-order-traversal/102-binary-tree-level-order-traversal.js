@@ -11,23 +11,17 @@
  * @return {number[][]}
  */
 var levelOrder = function(root) {
-    if(!root) return [];
     
-    let answer = [];
-    let queue = [root];
-    
-    while(queue.length){
-        const levels = [];
-        const numNodes = queue.length;
-        for(let i = 0; i < numNodes; i++){
-            const subTree = queue.shift();
-            levels.push(subTree.val);
-            if(subTree.left) queue.push(subTree.left);
-            if(subTree.right) queue.push(subTree.right);
-            
+   let q = [root], ans = []
+    while (q[0]) {
+        let qlen = q.length, row = []
+        for (let i = 0; i < qlen; i++) {
+            let curr = q.shift()
+            row.push(curr.val)
+            if (curr.left) q.push(curr.left)
+            if (curr.right) q.push(curr.right)
         }
-        answer.push(levels)
+        ans.push(row)            
     }
-    
-    return answer;
+    return ans
 };
